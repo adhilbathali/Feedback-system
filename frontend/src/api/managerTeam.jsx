@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API_BASE = 'http://127.0.0.1:8000';
+import axiosInstance from "./axiosInstance";
 
 const jsonHeaders = {
   headers: {
@@ -9,17 +7,17 @@ const jsonHeaders = {
 };
 
 export const getEmployees = async () => {
-  const res = await axios.get(`${API_BASE}/manager/team`);
+  const res = await axiosInstance.get(`/manager/team`);
   return res.data;
 };
 
 export const addEmployee = async (email) => {
-  const res = await axios.patch(`${API_BASE}/manager/team`, { "email": email }, jsonHeaders);
+  const res = await axiosInstance.patch(`/manager/team`, { "email": email }, jsonHeaders);
   return res.data;
 };
 
 
 export const removeEmployee = async (employeeId) => {
-  const res = await axios.patch(`${API_BASE}/manager/team/${employeeId}`)
+  const res = await axiosInstance.patch(`/manager/team/${employeeId}`)
   return res.data
 };
