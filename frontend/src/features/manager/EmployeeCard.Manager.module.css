@@ -1,6 +1,19 @@
-/* ListEmployeeCard.module.css */
+/* EmployeeCard.Manager.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+:root {
+  --primary-text: #2E3A59;
+  --secondary-text: #6E6E6E;
+  --border-color: #f0f0f0; 
+}
+
+/* 
+  1. THE MAIN CARD
+  This is the top-level container. It uses flexbox to position its two children:
+  - .employeeDetails (the left side)
+  - .iconButton (the right side)
+  `justify-content: space-between` pushes them to opposite ends.
+*/
 .card {
   display: flex;
   align-items: center;
@@ -13,7 +26,7 @@
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-family: 'Inter', sans-serif;
-  max-width: 50rem;
+  width: 100%; 
 }
 
 .card:hover {
@@ -21,12 +34,24 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.cardInfo {
+/* 
+  2. THE LEFT-SIDE GROUP
+  This div groups the avatar and the text info together.
+*/
+.employeeDetails {
   display: flex;
-  justify-content: space-between;
-  width: 20%;
+  align-items: center;
+  gap: 1rem; /* Space between avatar and the info block */
+  flex-grow: 1; 
+  min-width: 0; /* Important for preventing overflow issues */
 }
 
+/* 
+  3. THE PROFILE CIRCLE
+  This is the avatar itself. The key property here is `flex-shrink: 0`.
+  This is the direct fix for the "squishing" problem, as it tells the
+  browser not to shrink this element, even if space is tight.
+*/
 .avatar {
   background-color: #2E3A59;
   color: white;
@@ -38,43 +63,82 @@
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  /* THIS IS THE FIX: Prevents the circle from squishing into an oval. */
+  flex-shrink: 0; 
 }
 
+/*
+  4. THE INFO GROUP (NAME AND COUNT)
+  This div holds the text content.
+*/
 .info {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .name {
   margin: 0;
   font-size: 1.125rem;
-  color: #2E3A59;
+  color: var(--primary-text);
   font-weight: 600;
+  /* Prevents long names from breaking the layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .count {
   margin: 0;
   font-size: 0.875rem;
-  color: #6E6E6E;
+  color: var(--secondary-text);
 }
 
+/*
+  5. THE TRASH ICON BUTTON
+  This is the second direct child of .card, pushed to the far right.
+*/
 .iconButton {
   background: none;
   border: none;
   cursor: pointer;
   color: var(--secondary-text);
-  padding: 0.25rem;
-  border-radius: 4px;
+  padding: 0.5rem;
+  border-radius: 50%;
   transition: background-color 0.2s ease, color 0.2s ease;
-  /* Adjust font-size for better icon scaling */
-  font-size: 1.2rem; 
+  font-size: 1.25rem; 
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .iconButton:hover {
-  background-color: var(--border-color);
+  background-color: #f3f4f6;
   color: var(--primary-text);
+}
+
+
+/* --- RESPONSIVE STYLES --- */
+/* Adjustments for screens smaller than 640px (e.g., mobile phones) */
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .employeeDetails {
+    gap: 0.75rem;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
 }

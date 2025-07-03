@@ -27,8 +27,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   width: 420px;
   max-width: 90%;
-  overflow: hidden; /* Important for the sliding effect and rounded corners */
-  padding: 2rem 2.5rem 2.5rem;
+  overflow: hidden;
+  padding: 2rem 1.8rem;
 }
 
 /* Tab Switcher */
@@ -99,7 +99,7 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  padding: 0 5px;
+  padding: 0;
   height: 100%; 
 }
 

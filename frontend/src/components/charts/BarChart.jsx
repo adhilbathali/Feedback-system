@@ -29,6 +29,7 @@ const BarChart = ({ feedbacks }) => {
 
     feedbacks.forEach((feedback) => {
       const date = new Date(feedback.created_at);
+      // Use 'short' month format (e.g., "Jan") which is better for small screens
       const month = date.toLocaleString('default', { month: 'short' });
 
       if (!monthlyCounts[month]) {
@@ -59,13 +60,25 @@ const BarChart = ({ feedbacks }) => {
           margin={{
             top: 5,
             right: 20,
-            left: -10,
+            // Changed from -10 to 0 to prevent Y-axis labels from being cut off
+            // on some screen sizes. Recharts will calculate the space needed.
+            left: 0,
             bottom: 5,
           }}
           barGap={10}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="name" tickLine={false} axisLine={{ stroke: '#E2E8F0' }} />
+          {/*
+            Added interval="preserveStartEnd" to prevent X-axis labels from
+            overlapping on small screens. It intelligently hides labels in the
+            middle if they don't fit.
+          */}
+          <XAxis
+            dataKey="name"
+            tickLine={false}
+            axisLine={{ stroke: '#E2E8F0' }}
+            interval="preserveStartEnd"
+          />
           <YAxis allowDecimals={false} tickLine={false} axisLine={false} />
           <Tooltip
             cursor={{ fill: 'rgba(239, 246, 255, 0.5)' }}
@@ -107,7 +120,8 @@ BarChart.propTypes = {
   feedbacks: PropTypes.arrayOf(
     PropTypes.shape({
       sentiment: PropTypes.oneOf(['positive', 'neutral', 'negative']).isRequired,
-      createdAt: PropTypes.string.isRequired,
+      // Corrected prop name from 'createdAt' to 'created_at' to match usage
+      created_at: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

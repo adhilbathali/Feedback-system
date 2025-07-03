@@ -2,247 +2,255 @@
 
 /* --- COLOR THEME & FONT --- */
 :root {
-    --primary-text: #2e3a59;
-    --secondary-text: #6e6e6e;
-    --card-background: #ffffff;
-    --page-background: #fafafa;
-    --accent-green: #10b981;
-    --accent-green-light: #e6fffa;
-    --accent-yellow: #facc15;
-    --accent-yellow-light: #fef9c3;
-    --accent-red: #ef4444;
-    --accent-red-light: #fee2e2;
-    --border-color: #e5e7eb;
-    --action-blue: #3b82f6;
-    --font-family: 'Inter', -apple-system, sans-serif;
-  }
-  
-  /* Base page style for demonstration */
-  .pageBackground {
-    background-color: var(--page-background);
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-  }
-  
-  .formCard {
-    background-color: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    padding: 2rem;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem; /* Generous spacing between form groups */
-    font-family: var(--font-family);
-  }
-  
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .label {
-    font-size: 1rem; /* 16px */
-    font-weight: 500;
-    color: var(--primary-text);
-  }
-  
-  /* --- Input & Textarea Fields --- */
-  .input,
-  .textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: #f9fafb;
-    color: var(--primary-text);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  
-  .input::placeholder,
-  .textarea::placeholder {
-    color: var(--secondary-text);
-    font-size: 14px;
-  }
-  
-  .input:focus,
-  .textarea:focus {
-    outline: none;
-    border-color: var(--action-blue);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-  }
-  
-  .textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  /* --- Sentiment Selection --- */
-  .sentimentContainer {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  }
-  
-  .sentimentButton {
-    flex-grow: 1;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px solid var(--border-color);
-    background-color: var(--card-background);
-    color: var(--secondary-text);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-  }
-  
-  .sentimentButton:hover {
-    border-color: var(--primary-text);
-    color: var(--primary-text);
-  }
-  
-  .sentimentButton.positive.active {
-    background-color: var(--accent-green);
-    border-color: var(--accent-green);
-    color: white;
-  }
-  .sentimentButton.neutral.active {
-    background-color: var(--accent-yellow);
-    border-color: var(--accent-yellow);
-    color: var(--primary-text);
-  }
-  .sentimentButton.negative.active {
-    background-color: var(--accent-red);
-    border-color: var(--accent-red);
-    color: white;
-  }
-  
-  /* --- Tag/Chip System --- */
-  .tagInputContainer {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .tagInputContainer .input {
-    flex-grow: 1;
-  }
-  
-  .addButton {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border: none;
-    background-color: var(--action-blue);
-    color: white;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    font-weight: 300;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .addButton:hover {
-    background-color: #2563eb;
-  }
-  
-  .tagsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-top: 0.25rem;
-  }
-  
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0.3rem 0.75rem;
-    border-radius: 999px;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .strengthTag {
-    background-color: var(--accent-green-light);
-    color: #065f46;
-  }
-  .improvementTag {
-    background-color: var(--accent-red-light);
-    color: #991b1b;
-  }
-  
-  .removeTagButton {
-    background: none;
-    border: none;
-    color: inherit;
-    opacity: 0.6;
-    font-size: 1.25rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0 0 0 0.25rem;
-    line-height: 1;
-    transition: opacity 0.2s;
-  }
-  
-  .removeTagButton:hover {
-    opacity: 1;
-  }
-  
-  /* --- Submit Button --- */
-  .submitButton {
-    width: 100%;
-    padding: 0.9rem;
-    margin-top: 1rem;
-    font-size: 1rem; /* 16px */
-    font-weight: 600;
-    color: white;
-    background-color: var(--action-blue);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-  }
-  
-  .submitButton:hover {
-    background-color: #2563eb;
-  }
-  
-  .submitButton:active {
-    transform: scale(0.99);
-  }
+  --primary-text: #2e3a59;
+  --secondary-text: #6e6e6e;
+  --card-background: #ffffff;
+  --page-background: #fafafa;
+  --accent-green: #10b981;
+  --accent-green-light: #e6fffa;
+  --accent-yellow: #facc15;
+  --accent-yellow-light: #fef9c3;
+  --accent-red: #ef4444;
+  --accent-red-light: #fee2e2;
+  --border-color: #e5e7eb;
+  --action-blue: #3b82f6;
+  --font-family: 'Inter', -apple-system, sans-serif;
+}
 
-  /* Full screen overlay */
+/* Base page style for demonstration */
+.pageBackground {
+  background-color: var(--page-background);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically on larger screens */
+  min-height: 100vh;
+  box-sizing: border-box; /* Ensures padding is included in height/width */
+}
+
+.formCard {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px S10px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem; /* Generous spacing between form groups */
+  font-family: var(--font-family);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  color: var(--primary-text);
+}
+
+/* --- Input & Textarea Fields --- */
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #f9fafb;
+  color: var(--primary-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* Important for width: 100% to work correctly with padding */
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--secondary-text);
+  font-size: 14px;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--action-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* --- Sentiment Selection --- */
+.sentimentContainer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.sentimentButton {
+  flex-grow: 1; /* Allows buttons to share space evenly */
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  color: var(--secondary-text);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.sentimentButton:hover {
+  border-color: var(--primary-text);
+  color: var(--primary-text);
+}
+
+.sentimentButton.positive.active {
+  background-color: var(--accent-green);
+  border-color: var(--accent-green);
+  color: white;
+}
+.sentimentButton.neutral.active {
+  background-color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  color: var(--primary-text);
+}
+.sentimentButton.negative.active {
+  background-color: var(--accent-red);
+  border-color: var(--accent-red);
+  color: white;
+}
+
+/* --- Tag/Chip System --- */
+/* This container ensures the input and button are on the same line */
+.tagInputContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center; /* Vertically aligns the input field and button */
+}
+
+/* This rule makes the input field expand to fill the available space */
+.tagInputContainer .input {
+  flex-grow: 1;
+  /* Override the default width: 100% to let flexbox control the size */
+  width: auto;
+}
+
+.addButton {
+  flex-shrink: 0; /* Prevents the button from shrinking */
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: var(--action-blue);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #2563eb;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.strengthTag {
+  background-color: var(--accent-green-light);
+  color: #065f46;
+}
+.improvementTag {
+  background-color: var(--accent-red-light);
+  color: #991b1b;
+}
+
+.removeTagButton {
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 0 0 0.25rem;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.removeTagButton:hover {
+  opacity: 1;
+}
+
+/* --- Submit Button --- */
+.submitButton {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  color: white;
+  background-color: var(--action-blue);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submitButton:hover {
+  background-color: #2563eb;
+}
+
+.submitButton:active {
+  transform: scale(0.99);
+}
+
+/* --- Modal Styles --- */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-/* Centered modal box */
 .modal {
   position: relative;
   background-color: var(--card-background);
@@ -250,10 +258,9 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   padding: 2rem;
   max-width: 650px;
-  width: 90%;
+  width: 100%; /* Changed from 90% to be consistent with other elements */
 }
 
-/* Close button */
 .closeButton {
   position: absolute;
   top: 1rem;
@@ -269,4 +276,32 @@
 
 .closeButton:hover {
   color: var(--primary-text);
+}
+
+
+/*
+ * --- RESPONSIVE STYLES ---
+ * Adjustments for screens smaller than 640px (e.g., mobile phones)
+*/
+@media (max-width: 640px) {
+  .pageBackground {
+    padding: 1rem;
+    align-items: flex-start; /* Align form to the top on mobile */
+  }
+
+  .formCard,
+  .modal {
+    padding: 1.5rem; /* Reduce padding on smaller screens */
+    gap: 1.25rem;   /* Reduce space between form groups */
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .input,
+  .textarea,
+  .sentimentButton {
+    font-size: 0.875rem; /* Slightly smaller text for better fit */
+  }
 }
