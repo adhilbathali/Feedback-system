@@ -1,0 +1,32 @@
+/* BarChart.module.css */
+
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    color: #1a202c;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: #1a202c;
+  }
+  
+  /* --- Recharts Overrides --- */
+  /* Style the text inside the chart (axis labels, legend) */
+  .container :global(.recharts-text) {
+    font-size: 0.875rem; /* 14px */
+    fill: #4a5568; /* A softer gray for axis text */
+  }
+  
+  /* Style the legend text for better readability */
+  .container :global(.recharts-legend-item-text) {
+    color: #2d3748 !important; /* A darker gray for legend text */
+    padding-left: 4px;
+  }

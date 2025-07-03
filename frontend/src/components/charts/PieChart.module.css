@@ -1,0 +1,71 @@
+/* PieChart.module.css */
+
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    color: #1a202c;
+    height: 100%;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: #1a202c;
+    text-align: center;
+  }
+  
+  /* This wrapper enables the absolute positioning of the center label */
+  .chartWrapper {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Match the ResponsiveContainer height */
+  }
+  
+  .centerLabel {
+    position: absolute;
+    top: 40%; /* Adjust vertical position to align in the donut hole */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none; /* Allows clicks to pass through to the chart */
+  }
+  
+  .totalCount {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+  }
+  
+  .totalLabel {
+    display: block;
+    font-size: 0.875rem;
+    color: #6e6e6e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .noData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    color: #6e6e6e;
+    font-style: italic;
+  }
+  
+  /* --- Recharts Overrides --- */
+  .container :global(.recharts-text) {
+    font-size: 0.875rem;
+    fill: #4a5568;
+  }
+  
+  .container :global(.recharts-legend-item-text) {
+    color: #2d3748 !important;
+    padding-left: 4px;
+  }

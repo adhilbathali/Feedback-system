@@ -1,0 +1,157 @@
+/* EmployeeFeedbackCard.module.css */
+
+/* --- THEME VARIABLES --- */
+:root {
+  --primary-text: #2E3A59;
+  --secondary-text: #6E6E6E;
+  --card-surface: #FFFFFF;
+  --accent-green: #10B981;
+  --accent-green-light: #E6FFFA;
+  --accent-yellow: #FACC15;
+  --accent-yellow-light: #FEF9C3;
+  --accent-red: #EF4444;
+  --accent-red-light: #FEE2E2;
+  --button-blue: #3B82F6;
+  --border-color: #F3F4F6;
+}
+
+/* --- BASE CARD --- */
+.card {
+  background-color: var(--card-surface);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  font-family: 'Inter', sans-serif;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --- HEADER --- */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sentimentBadge {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.positive {
+  background-color: var(--accent-green-light);
+  color: var(--accent-green);
+}
+
+.neutral {
+  background-color: var(--accent-yellow-light);
+  color: #CA8A04;
+}
+
+.negative {
+  background-color: var(--accent-red-light);
+  color: var(--accent-red);
+}
+
+/* --- CONTENT --- */
+.description {
+  color: var(--primary-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tagsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tagsLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.strengthTag {
+  background-color: var(--accent-green-light);
+  color: var(--accent-green);
+}
+
+.improvementTag {
+  background-color: var(--accent-red-light);
+  color: var(--accent-red);
+}
+
+/* --- FOOTER --- */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0.5rem;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: var(--secondary-text);
+}
+
+.acknowledgeButton {
+  background-color: var(--button-blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.acknowledgeButton:hover {
+  background-color: #2563EB;
+}
+
+.acknowledgedText {
+  font-size: 0.875rem;
+  color: #cac0c0;
+  font-weight: 500;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

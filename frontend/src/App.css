@@ -1,0 +1,44 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  background-color: #f0f2f5;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  color: #1A202C;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-style: inter;
+}
+
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 1.5rem; /* Space between grid items */
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+.full-width {
+  grid-column: 1 / -1; /* Makes the bar chart span both columns */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Stack charts on top of each other */
+  }
+}
