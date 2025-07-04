@@ -30,5 +30,5 @@ class FeedbackOut(FeedbackBase):
     updated_at: Optional[datetime] = None
 
     class config:
-        orm_mode = True
+        from_attributes: True
 

@@ -22,7 +22,7 @@ class UserOut(UserBase):
     feedback_count: Optional[int] = None
 
     class Config:
-        orm_mode = True
+        from_attributes: True
 
 
 class UserLogin(OAuth2PasswordRequestForm):
