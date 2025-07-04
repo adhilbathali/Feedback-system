@@ -2,8 +2,10 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://feedback-system-backend-1-0.onrender.com/',
+  baseURL: import.meta.env.VITE_API_URL
 });
+
+console.log(import.meta.env.VITE_API_URL, "hello world")
 
 // ✅ Request interceptor to include token on every request
 axiosInstance.interceptors.request.use(

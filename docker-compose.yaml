@@ -35,7 +35,10 @@ services:
       - "8000:8000"
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_URL=http://localhost:8000
     ports:
       - "3000:80"  # expose Nginx-frontend to host
     depends_on:
