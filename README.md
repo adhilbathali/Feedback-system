@@ -45,7 +45,7 @@
 ```
 # clone the repo
 
-git clone https://github.com/adhilbathali/Feedback-system.git
+git clone https://github.com/adhilbathali/internal-feedback-system.git
 
 # Build and start both frontend, backend & database
 
