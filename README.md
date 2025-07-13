@@ -44,7 +44,7 @@
 
 ```
 # clone the repo
-git clone https://github.com/adhilbathali/Feedback-system.git
+git clone https://github.com/adhilbathali/internal-feedback-system.git
 
 #change working directory
 cd internal-feedback-system
@@ -95,6 +95,7 @@ Click the link in the frontend terminal. Voila!
 
 ## 🔐 Environment Variables
 - Rename the file `.env.example` to `.env` or
+  
     ```
     cp backend/.env.example backend/.env
     ```
