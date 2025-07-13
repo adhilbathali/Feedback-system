@@ -94,6 +94,7 @@ Click the link in the frontend terminal. Voila!
 
 ## 🔐 Environment Variables
 - Rename the file `.env.example` to `.env` or
+  
     ```
     cp backend/.env.example backend/.env
     ```
