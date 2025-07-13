@@ -44,11 +44,12 @@
 
 ```
 # clone the repo
-
 git clone https://github.com/adhilbathali/Feedback-system.git
 
-# Build and start both frontend, backend & database
+#change working directory
+cd internal-feedback-system
 
+# Build and start both frontend, backend & database
 docker-compose up --build
 
 ```
