@@ -69,7 +69,7 @@ That’s it! Visit http://localhost:3000
 ```
 # clone the repo
 
-git clone https://github.com/adhilbathali/Feedback-system.git
+git clone https://github.com/adhilbathali/internal-feedback-system.git
 ```
 *Database:*
 ```
