@@ -1,36 +1,24 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:15
-    container_name: feedback-db
     restart: always
-    environment:
-      POSTGRES_USER: feedbackuser
-      POSTGRES_PASSWORD: cube
-      POSTGRES_DB: feedback_system
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U feedbackuser -d feedback_system -h localhost"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+    env_file: ./backend/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ifs-net
 
   backend:
-    build: ./backend
-    container_name: feedback-system_backend
+    build:
+      context: ./backend
     restart: always
-    depends_on:
-      db:
-        condition: service_healthy
+    env_file: ./backend/.env
     environment:
-      DATABASE_HOSTNAME: db
-      DATABASE_PORT: 5432
-      DATABASE_USERNAME: feedbackuser
-      DATABASE_PASSWORD: cube
-      DATABASE_NAME: feedback_system
-      SECRET_KEY: rte@fjsd%hlaoclew^fhlsk&aapl@sfsdlifdlsaaeoiwhewoi@fsiofwo
-      ALGORITHM: HS256
-      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      - DATABASE_HOSTNAME = db
+    depends_on:
+      - db
+    networks:
+      - ifs-net
     ports:
       - "8000:8000"
 
@@ -38,11 +26,17 @@ services:
     build:
       context: ./frontend
       args:
-        - VITE_API_URL=http://localhost:8000
-    ports:
-      - "3000:80"  # expose Nginx-frontend to host
+        - VITE_API_URL=http://backend:8000
     depends_on:
       - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - ifs-net
 
 volumes:
   postgres_data:
+
+networks:
+  ifs-net:
+    driver: bridge
