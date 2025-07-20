@@ -49,9 +49,15 @@ git clone https://github.com/adhilbathali/internal-feedback-system.git
 #change working directory
 cd internal-feedback-system
 
+# copy .env.example to new .env file
+cp backend/.env.example backend/.env
+
+# Assign the env variables with your values
+code backend/.env
+```
+```
 # Build and start both frontend, backend & database
 docker-compose up --build
-
 ```
 
 That’s it! Visit http://localhost:3000
@@ -116,9 +122,3 @@ Click the link in the frontend terminal. Voila!
 
 - LinkedIn: [Muhammed Adhil](https://linkedin.com/in/adhilbathali)
 - GitHub: [adhilbathali](https://github.com/adhilbathali)
-
-
-
-
-
-
