@@ -72,14 +72,24 @@ That’s it! Visit http://localhost:3000
 
 **Steps:**
 
-```
-# clone the repo
-
-git clone https://github.com/adhilbathali/internal-feedback-system.git
-```
 *Database:*
 ```
+# create a database for the feedback-system
 CREATE DATABASE your_database_name;
+```
+
+```
+# clone the repo
+git clone https://github.com/adhilbathali/internal-feedback-system.git
+
+#change working directory
+cd internal-feedback-system
+
+# copy .env.example to new .env file
+cp backend/.env.example backend/.env
+
+# Assign the env variables with your values
+code backend/.env
 ```
 
 *Frontend:*
