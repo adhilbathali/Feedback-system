@@ -14,7 +14,7 @@ services:
     restart: always
     env_file: ./backend/.env
     environment:
-      - DATABASE_HOSTNAME = db
+      - DATABASE_HOSTNAME=db
     depends_on:
       - db
     networks:
@@ -26,7 +26,7 @@ services:
     build:
       context: ./frontend
       args:
-        - VITE_API_URL=http://backend:8000
+        - VITE_API_URL=http://localhost:8000
     depends_on:
       - backend
     ports:
